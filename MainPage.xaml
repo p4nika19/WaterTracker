@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WaterTrackerApp1.MainPage"
+             BackgroundColor="#E8F9FA">
+
+    <VerticalStackLayout Spacing="20" Padding="30" VerticalOptions="Center">
+
+        <!-- Ввод целевого объема воды -->
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Label Text="Цель (мл):" FontSize="18" VerticalOptions="Center" TextColor="#242424"/>
+            <Entry x:Name="TargetEntry" Text="2000" WidthRequest="100" Keyboard="Numeric" HorizontalOptions="Center" TextColor="#242424" PlaceholderColor="#242424" />
+            <Button Text="Установить" Clicked="SetTarget_Clicked" BackgroundColor="#47F6FF"/>
+        </HorizontalStackLayout>
+
+        <!-- Контейнер для капли воды -->
+        <Frame x:Name="WaterDropFrame" 
+               WidthRequest="201" 
+               HeightRequest="301" 
+               CornerRadius="100" 
+               BackgroundColor="#E0E0E0" 
+               HorizontalOptions="Center"
+               Padding="0">
+            <Frame x:Name="WaterLevelFrame" 
+                   WidthRequest="200" 
+                   HeightRequest="0" 
+                   CornerRadius="100" 
+                   BackgroundColor="#47F6FF" 
+                   VerticalOptions="End"
+                   Padding="0"/>
+        </Frame>
+
+        <!-- Текущий прогресс -->
+        <Label x:Name="ProgressLabel" 
+               Text="0/2000 мл" 
+               FontSize="20" 
+               HorizontalOptions="Center"
+               TextColor="#242424"/>
+
+        <!-- Выбор объема выпитой воды -->
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Button Text="200 мл" Clicked="AddWater_Clicked" CommandParameter="200" BackgroundColor="#47F6FF"/>
+            <Button Text="300 мл" Clicked="AddWater_Clicked" CommandParameter="300" BackgroundColor="#47F6FF"/>
+            <Button Text="500 мл" Clicked="AddWater_Clicked" CommandParameter="500" BackgroundColor="#47F6FF"/>
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+
+</ContentPage>
